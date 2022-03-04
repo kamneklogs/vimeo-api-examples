@@ -11,9 +11,6 @@ try { // Load credentials
 //Vimeo client to upload content
 var client = new Vimeo(config.client_id, config.client_secret, config.access_token)
 
-//Full path
-var filePath = 'C:\\Users\\Camilo\\Videos\\big_buck_bunny_720p_1mb.mp4'
-
 //Min params to upload a videods
 var params = {
     'name': 'Test video',
@@ -22,7 +19,7 @@ var params = {
 
 var finalUri = ''
 client.upload(
-    filePath,
+    config.filePath/*Full path to video file*/,
     params,
     function (uri) {// Whet the upload is completed, return video uri (This can be saved into training-database)
         finalUri = uri
